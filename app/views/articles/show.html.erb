@@ -2,21 +2,25 @@
 <div class="row xx-post-sp">
   <div class="col-sm-8 offset-sm-2">
     <div class="card">
-      <div class="card-header text-center xx-form-label">
-        <strong>Description:</strong>
+      <div class="card-header xx-form-label">
+        <div class="article-title">
+          <%= @article.title %>
+        </div>
       </div>
       <div class="card-body">
         <div class="card-text">
-          <%= simple_format(@article.description) %>
+          <div class="article-body">
+            <%= @article.description %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="article-actions center">
+    <div class="article-actions">
       <%= link_to "Edit", edit_article_path(@article), class: "btn btn-sm btn-info btn-primary" %>
-      <%= link_to "Delete", articles_path, method: :delete,
+        <%= link_to "Delete", article_path(@article), method: :delete,
                         data: { confirm: "Are you sure you want to delete the article?" },
                         class: "btn btn-sm btn-danger" %>
       <%= link_to "View All", articles_path, class: "btn btn-sm btn-info" %>
     </div>
   </div>
-</div>
+<div>
