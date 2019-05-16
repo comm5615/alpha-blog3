@@ -1,0 +1,20 @@
+<% if obj.errors.any? %>
+  <div class="row xx-post-sp">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="card">
+        <div class="card-header xx-form-label">
+          <p>The following <%= pluralize(obj.errors.count, "error") %> prevented the article from being created:</p>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <ul>
+              <% obj.errors.full_messages.each do |msg| %>
+                <li class="xx-form-label"><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
