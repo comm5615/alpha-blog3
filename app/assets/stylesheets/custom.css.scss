@@ -55,10 +55,15 @@ $light: rgb(0, 96, 128);
     margin-bottom: 30px;
 }
 
+.article-actions {
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
+}
+
 footer {
     margin-top: 45px;
     padding-top: 5px;
-    border-top: 2px solid $light;
+    border-top: 2px solid #eaeaea;
     color: $light;
 }
 
