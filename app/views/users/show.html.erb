@@ -1,0 +1,11 @@
+<h1 class="xx-page-header">Welcome to <%= @user.username %>'s page</h1>
+<div class="row xx-post-sp">
+  <div class="col-sm-4 offset-sm-4 center">
+    <%= gravatar_for @user, size: 150 %>
+  </div>
+</div>
+<h4 class="xx-page-header"><%= @user.username %>'s articles</h4>
+<%= render "articles/article", obj: @user.articles %>
+
+
+

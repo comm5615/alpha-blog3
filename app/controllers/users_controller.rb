@@ -19,9 +19,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def show
-  end
-
   def update
     if @user.update(user_params)
       flash[:success] = "User #{@user.username} was successfully updated"
@@ -30,6 +27,9 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def destroy
