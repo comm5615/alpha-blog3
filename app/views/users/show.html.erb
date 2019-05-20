@@ -4,6 +4,11 @@
     <%= gravatar_for @user, size: 150 %>
   </div>
 </div>
+<div class="row xx-post-sp">
+  <div class="col-sm-4 offset-sm-4 center">
+    <%= @user.email %>
+  </div>
+</div>
 <h4 class="xx-page-header"><%= @user.username %>'s articles</h4>
 <div align="center">
   <%= will_paginate @user_articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
