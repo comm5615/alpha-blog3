@@ -5,7 +5,16 @@
   </div>
 </div>
 <h4 class="xx-page-header"><%= @user.username %>'s articles</h4>
-<%= render "articles/article", obj: @user.articles %>
+<div align="center">
+  <%= will_paginate @user_articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
+</div>
+<% @user_articles.each do |article| %>
+  <%= render "articles/article", obj: article %>
+<% end %>
+<div align="center">
+  <%= will_paginate @user_articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
+</div>
+
 
 
 

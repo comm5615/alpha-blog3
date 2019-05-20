@@ -1,6 +1,12 @@
 <h1 class="xx-page-header">Articles</h1>
 
+<div align="center">
+  <%= will_paginate @articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
+</div>
 <% @articles.each do |article| %>
   <%= render "article", obj: article %>
 <% end %>
+<div align="center">
+  <%= will_paginate @articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
+</div>
 
