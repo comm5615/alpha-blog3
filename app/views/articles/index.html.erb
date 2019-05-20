@@ -1,3 +1,6 @@
 <h1 class="xx-page-header">Articles</h1>
 
-<%= render "article", obj: @articles %>
+<% @articles.each do |article| %>
+  <%= render "article", obj: article %>
+<% end %>
+

@@ -1,0 +1,31 @@
+<h1 class="xx-page-header">All Alpha Bloggers</h1>
+<% @users.each do |user| %>
+  <div class="row xx-post-sp">
+    <div class="col-sm-4 offset-sm-4">
+      <div class="card">
+        <div class="card-header">
+          <div class="article-title center">
+            <%= link_to gravatar_for(user), user_path(user) %>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <div class="article-body">
+              <%= link_to user.username, user_path(user) %>
+              <small><%= pluralize(user.articles.count, "article") if user.articles %></small><br/>
+              <%= user.email %>
+            </div>
+            <div class="article-body">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="article-actions">
+        <%= link_to "Edit", edit_user_path(user), class: "btn btn-sm btn-info btn-primary" %>
+        <%= link_to "Delete", user_path(user), method: :delete,
+                        data: { confirm: "Are you sure you want to delete the user?" },
+                        class: "btn btn-sm btn-danger" %>
+      </div>
+    </div>
+  </div>
+<% end %>

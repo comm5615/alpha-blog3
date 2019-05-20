@@ -1,33 +1,35 @@
-<% obj.each do |article| %>
-  <div class="row xx-post-sp">
-    <div class="col-sm-8 offset-sm-2">
-      <div class="card">
-        <div class="card-header">
-          <div class="article-title">
-            <%= link_to article.title, article_path(article) %>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-text">
-            <div class="article-body">
-              <%= truncate(article.description, length: 20) %>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer text-muted">
-          <small>
-             Created by: <b><%= article.user.username if article.user %></b>,
-             <%= time_ago_in_words(article.created_at) %> ago,
-             last updated: <%= time_ago_in_words(article.updated_at) %> ago
-           </small>
+<div class="row xx-post-sp">
+  <div class="col-sm-8 offset-sm-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="article-title">
+          <%= link_to obj.title, article_path(obj) %>
         </div>
       </div>
-      <div class="article-actions">
-        <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-info btn-primary" %>
-        <%= link_to "Delete", article_path(article), method: :delete,
-                        data: { confirm: "Are you sure you want to delete the article?" },
-                        class: "btn btn-sm btn-danger" %>
+      <div class="card-body">
+        <div class="card-text">
+          <div class="article-body">
+            <%= truncate(obj.description, length: 20) %>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+      <%= link_to(gravatar_for(obj.user, size: 40), user_path(obj.user)) if obj.user %>
+      <small>
+        <% if obj.user %>
+           Created by: <%= link_to(obj.user.username, user_path(obj.user)) %>,
+        <% end %>
+         <%= time_ago_in_words(obj.created_at) %> ago,
+         last updated: <%= time_ago_in_words(obj.updated_at) %> ago
+       </small>
       </div>
     </div>
+    <div class="article-actions">
+      <%= link_to "Show", article_path(obj), class: "btn btn-sm btn-info" %>
+      <%= link_to "Edit", edit_article_path(obj), class: "btn btn-sm btn-info btn-primary" %>
+      <%= link_to "Delete", article_path(obj), method: :delete,
+                      data: { confirm: "Are you sure you want to delete the article?" },
+                      class: "btn btn-sm btn-danger" %>
+    </div>
   </div>
-<% end %>
+</div>
