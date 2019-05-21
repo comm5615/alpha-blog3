@@ -21,12 +21,14 @@
           </div>
         </div>
       </div>
-      <div class="article-actions">
-        <%= link_to "Edit", edit_user_path(user), class: "btn btn-sm btn-info btn-primary" %>
-        <%= link_to "Delete", user_path(user), method: :delete,
-                        data: { confirm: "Are you sure you want to delete the user?" },
-                        class: "btn btn-sm btn-danger" %>
-      </div>
+      <% if logged_in? and current_user.admin? %>
+        <div class="article-actions">
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-sm btn-info btn-primary" %>
+          <%= link_to "Delete", user_path(user), method: :delete,
+                          data: { confirm: "Are you sure you want to delete user \"#{user.username}\" and all their articles?" },
+                          class: "btn btn-sm btn-danger" %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>
