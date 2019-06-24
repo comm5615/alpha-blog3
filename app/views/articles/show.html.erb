@@ -14,6 +14,9 @@
         </div>
       </div>
       <div class="card-footer text-muted">
+          <% if @article.categories.any? %>
+            <p>Categories: <%= render @article.categories %></p>
+          <% end %>
         <%= link_to(gravatar_for(@article.user, size: 40), user_path(@article.user)) if @article.user %>
         <small>
           <% if @article.user %>

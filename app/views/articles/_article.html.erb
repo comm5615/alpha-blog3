@@ -14,6 +14,9 @@
         </div>
       </div>
       <div class="card-footer text-muted">
+        <% if obj.categories.any? %>
+          <p>Categories: <%= render obj.categories %></p>
+        <% end %>
         <%= link_to(gravatar_for(obj.user, size: 40), user_path(obj.user)) if obj.user %>
         <small>
           <% if obj.user %>

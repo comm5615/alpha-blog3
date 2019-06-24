@@ -1,0 +1,11 @@
+<h1 class="xx-page-header"><%= "Category: " + @category.name %></h1>
+
+<div align="center">
+  <%= will_paginate @category_articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
+</div>
+<% @category_articles.each do |article| %>
+  <%= render "articles/article", obj: article, desc: truncate(article.description, length: 20) %>
+<% end %>
+<div align="center">
+  <%= will_paginate @category_articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
+</div>
