@@ -1,6 +1,10 @@
 <h1 class="xx-page-header"><%= "Category: " + @category.name %></h1>
 
 <div align="center">
+  <% if logged_in? and current_user.admin? %>
+    <%= link_to "Edit Category Name", edit_category_path(@category), class: "badge badge-info" %>
+    <p></p>
+  <% end %>
   <%= will_paginate @category_articles, list_classes: %w(pagination justify-content-center), previous_label: "Previous", next_label: "Next" %>
 </div>
 <% @category_articles.each do |article| %>
